@@ -5,7 +5,6 @@ interface IFormState {
   value: string;
   subTitle: string;
 }
-
 interface IFormContext {
   formValues: IFormState[];
   setFormValues: React.Dispatch<React.SetStateAction<IFormState[]>>;

@@ -62,22 +62,46 @@ export default function Home(): ReactElement {
       return;
     }
 
-    const newFormValues: IFormState[] = [
-      ...formValues,
-      {
+    // Submit the form data to the server
+    fetch("http://localhost:3000/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         title: firstNameValue,
         subTitle: emailAddressValue,
         value: amountValue,
-      },
-    ];
+      }),
+    })
+        .then((response) => {
+          if (response.ok) {
+            // If the response is valid, add the transaction to the local state
+            const newFormValues: IFormState[] = [
+              ...formValues,
+              {
+                title: firstNameValue,
+                subTitle: emailAddressValue,
+                value: amountValue,
+              },
+            ];
 
-    setFormValues(newFormValues);
-    startShowComponentTimer();
+            setFormValues(newFormValues);
+            startShowComponentTimer();
 
-    setFirstName({ value: "", error: false });
-    setEmailAddress({ value: "", error: false });
-    setAmount({ value: "", error: false });
+            setFirstName({ value: "", error: false });
+            setEmailAddress({ value: "", error: false });
+            setAmount({ value: "", error: false });
+          } else {
+            // If the response is not valid, show an error message
+            throw new Error("Network response was not ok");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
   };
+
 
   return (
     <SafeAreaView style={styles.container}>

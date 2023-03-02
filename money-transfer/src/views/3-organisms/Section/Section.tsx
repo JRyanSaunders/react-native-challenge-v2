@@ -9,7 +9,7 @@ export interface ISectionProps {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
+    paddingTop: 24,
     marginBottom: 0,
   },
   header: {
