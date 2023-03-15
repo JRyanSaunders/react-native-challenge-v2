@@ -1,6 +1,6 @@
 # React-Native Coding Challenge
 
-Congratulations! You're here because you've made it through to the next step of your Zopa interview.
+Congratulations! You're here because you've made it through to the next step of your interview.
 
 We'd like to ask you to complete this coding challenge, so you can showcase your creative problem-solving and technical ability.
 
