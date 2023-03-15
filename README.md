@@ -1,4 +1,4 @@
-# React-Native Coding Challenge - Zopa
+# React-Native Coding Challenge
 
 Congratulations! You're here because you've made it through to the next step of your Zopa interview.
 
